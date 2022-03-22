@@ -63,7 +63,7 @@ public class MessageService {
             byId.get().setTitle(messageDto.getTitle());
         }
     }
-    */
+
 
     @Transactional
     public void deleteMessage(int messageId) {
@@ -72,5 +72,7 @@ public class MessageService {
             messageRepository.delete(byId.get());
         }
     }
+
+    */
 
 }
