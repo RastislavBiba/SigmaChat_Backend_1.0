@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example;
 
 public class BorrowedBook {
     private int id;

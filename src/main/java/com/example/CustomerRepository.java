@@ -1,9 +1,8 @@
-package com.example.demo;
+package com.example;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MessageRepository extends CrudRepository<MessageEntity, Long>  {
+public interface CustomerRepository extends CrudRepository<CustomerEntity, Long> {
 }
-

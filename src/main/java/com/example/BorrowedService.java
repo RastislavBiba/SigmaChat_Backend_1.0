@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example;
 
+import com.example.message.MessageService;
 import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;

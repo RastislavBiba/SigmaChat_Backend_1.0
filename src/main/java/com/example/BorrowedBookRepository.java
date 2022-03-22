@@ -1,8 +1,9 @@
-package com.example.demo;
+package com.example;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CustomerRepository extends CrudRepository<CustomerEntity, Long> {
+public interface BorrowedBookRepository extends CrudRepository<BorrowedBookEntity, Long>  {
 }
+
