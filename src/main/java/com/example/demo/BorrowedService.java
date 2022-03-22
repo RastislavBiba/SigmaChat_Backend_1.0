@@ -15,7 +15,7 @@ public class BorrowedService {
     private List<Book> books;
     private List<BorrowedBook> borrowings;
     private List<User> users;
-    private BookService bookService;
+    private MessageService messageService;
     //borrowings
 
 

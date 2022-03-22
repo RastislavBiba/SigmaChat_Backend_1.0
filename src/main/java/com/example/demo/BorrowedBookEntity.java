@@ -15,7 +15,7 @@ public class BorrowedBookEntity {
     private CustomerEntity borrower;
 
     @ManyToOne
-    private BookEntity book;
+    private MessageEntity book;
 
     public CustomerEntity getBorrower() {
         return borrower;
@@ -25,11 +25,11 @@ public class BorrowedBookEntity {
         this.borrower = borrower;
     }
 
-    public BookEntity getBook() {
+    public MessageEntity getBook() {
         return book;
     }
 
-    public void setBook(BookEntity book) {
+    public void setBook(MessageEntity book) {
         this.book = book;
     }
     //private String borrower;

@@ -8,12 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="SigmaChat_Backend" />
         <module name="SigmaChat_Backend_1.0" />
+        <module name="demo" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="SigmaChat_Backend_1.0" options="-parameters" />
+      <module name="demo" options="-parameters --add-modules java.base" />
     </option>
   </component>
 </project>
