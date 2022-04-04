@@ -1,6 +1,7 @@
-package com.example;
+package room;
 
 import com.example.message.MessageEntity;
+import user.CustomerEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

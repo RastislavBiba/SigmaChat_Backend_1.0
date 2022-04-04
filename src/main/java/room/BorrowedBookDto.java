@@ -1,4 +1,4 @@
-package com.example;
+package room;
 
 public class BorrowedBookDto {
     private String borrower;

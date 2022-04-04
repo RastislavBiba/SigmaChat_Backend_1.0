@@ -12,6 +12,7 @@ public class MessageEntity {
     private String text;
     private String prijimatel;
     private String odosielatel;
+    
 
     public Long getId() {
         return id;

@@ -1,4 +1,4 @@
-package com.example;
+package room;
 
 import com.example.message.MessageService;
 import org.apache.catalina.User;

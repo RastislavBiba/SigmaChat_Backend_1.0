@@ -55,12 +55,13 @@ public class MessageService {
         return messageEntity.getId();
     }
 
-   /* @Transactional
-    public void updateMessage(int bookId, MessageDto messageDto) {
-        Optional<MessageEntity> byId = messageRepository.findById((long)bookId);
+   @Transactional
+    public void updateMessage(int messageId, MessageDto messageDto) {
+        Optional<MessageEntity> byId = messageRepository.findById((long)messageId);
         if (byId.isPresent()) {
-            byId.get().setAuthor(messageDto.getAuthor());
-            byId.get().setTitle(messageDto.getTitle());
+            byId.get().setOdosielatel(messageDto.getOdosielatel());
+            byId.get().setPrijimatel(messageDto.getPrijimatel());
+            byId.get().setText(messageDto.getText());
         }
     }
 
@@ -73,6 +74,5 @@ public class MessageService {
         }
     }
 
-    */
 
 }

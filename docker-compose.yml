@@ -6,8 +6,8 @@ services:
     image: sameersbn/postgresql:10-2
     environment:
       - PG_TRUST_LOCALNET=true
-      - DB_NAME=library
-      - DB_USER=postgres
+      - DB_NAME=chat
+      - DB_USER=sigma
       - DB_PASS=postgres
       - PG_RUNDIR=/run/postgres
       - PG_LOGDIR=/var/log/postgres
