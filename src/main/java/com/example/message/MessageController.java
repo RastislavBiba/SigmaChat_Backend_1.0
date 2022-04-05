@@ -26,7 +26,9 @@ public class MessageController {
 
     @PostMapping("/api/messages")
     public Long createMessage(@RequestBody MessageDto messageDto) {
+        System.out.println("1");
         return messageService.createMessage(messageDto);
+
     }
 
    @DeleteMapping("/api/messages/{messageId}")

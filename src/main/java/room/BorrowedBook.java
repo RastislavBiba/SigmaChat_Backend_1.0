@@ -1,12 +1,19 @@
-package com.example.room;
+package room;
 
-public class BorrowedBookDto {
+public class BorrowedBook {
+    private int id;
     private String borrower;
     private String book;
 
-    public String getBorrower() {
-        return borrower;
+    public int getId() {
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getBorrower() { return borrower; }
 
     public void setBorrower(String borrower) {
         this.borrower = borrower;
