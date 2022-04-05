@@ -1,4 +1,4 @@
-package room;
+package com.example.room;
 
 import com.example.message.MessageEntity;
 import user.CustomerEntity;
