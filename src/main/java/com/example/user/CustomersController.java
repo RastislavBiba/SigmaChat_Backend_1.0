@@ -1,4 +1,4 @@
-package user;
+package com.example.user;
 
 import org.springframework.web.bind.annotation.*;
 

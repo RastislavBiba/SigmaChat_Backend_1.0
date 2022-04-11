@@ -1,4 +1,4 @@
-package user;
+package com.example.user;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +12,15 @@ public class CustomerEntity {
     private String firstName;
     private String lastName;
     private String email;
+    private String login;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
     public Long getId() {
         return id;

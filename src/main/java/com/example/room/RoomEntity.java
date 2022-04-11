@@ -1,7 +1,7 @@
-package room;
+package com.example.room;
 
 import com.example.message.MessageEntity;
-import user.CustomerEntity;
+import com.example.user.CustomerEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,31 +9,31 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class BorrowedBookEntity {
+public class RoomEntity {
     @Id
     @GeneratedValue
     private Long id;
 
     @ManyToOne
-    private CustomerEntity borrower;
+    private CustomerEntity user;
 
     @ManyToOne
-    private MessageEntity book;
+    private MessageEntity message;
 
-    public CustomerEntity getBorrower() {
-        return borrower;
+    public CustomerEntity getUser() {
+        return user;
     }
 
-    public void setBorrower(CustomerEntity borrower) {
-        this.borrower = borrower;
+    public void setUser(CustomerEntity borrower) {
+        this.user = borrower;
     }
 
-    public MessageEntity getBook() {
-        return book;
+    public MessageEntity getMessage() {
+        return message;
     }
 
-    public void setBook(MessageEntity book) {
-        this.book = book;
+    public void setMessage(MessageEntity book) {
+        this.message = book;
     }
     //private String borrower;
     //private String book;

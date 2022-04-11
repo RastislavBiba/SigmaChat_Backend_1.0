@@ -1,4 +1,4 @@
-package user;
+package com.example.user;
 
 import org.springframework.stereotype.Service;
 
@@ -74,8 +74,8 @@ public class CustomerService {
     }
 
     /*
-    public Integer createCustomer(@RequestBody User user){
-        this.users.add(user);
+    public Integer createCustomer(@RequestBody User com.example.user){
+        this.users.add(com.example.user);
         return this.users.size()-1;
     }
     public User listCustomers(@PathVariable int customerId){
@@ -83,22 +83,22 @@ public class CustomerService {
     }
     public List<User> getList(@RequestParam(required = false) String firstName){
         List<User> filteredUsers = new ArrayList<>();
-        for (User user : users){
-            if (user.getFirstName().equals(firstName)){
-                filteredUsers.add(user);
+        for (User com.example.user : users){
+            if (com.example.user.getFirstName().equals(firstName)){
+                filteredUsers.add(com.example.user);
             }
         }
-        User user = new User();
+        User com.example.user = new User();
         return this.users;
     }
     public List<User> getUserId(@RequestParam(required = false) Integer customerId){
         List<User> filteredUsers = new ArrayList<>();
-        for (User user : users){
-            if (user.getId() == customerId){
-                filteredUsers.add(user);
+        for (User com.example.user : users){
+            if (com.example.user.getId() == customerId){
+                filteredUsers.add(com.example.user);
             }
         }
-        User user = new User();
+        User com.example.user = new User();
         return this.users;
     }
     public void deleteCustomer(@PathVariable Integer userId){

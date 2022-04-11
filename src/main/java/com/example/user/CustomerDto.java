@@ -1,9 +1,19 @@
-package user;
+package com.example.user;
 
 public class CustomerDto {
     private String firstName;
     private String lastName;
     private String email;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    private String login;
 
     public String getFirstName() {
         return firstName;
