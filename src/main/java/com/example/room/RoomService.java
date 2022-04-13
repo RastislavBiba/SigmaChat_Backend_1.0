@@ -1,16 +1,86 @@
 package com.example.room;
 
 import com.example.message.MessageService;
+import com.example.user.CustomerDto;
+import com.example.user.CustomerEntity;
+import com.example.user.CustomerRepository;
 import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.transaction.Transactional;
 import java.awt.print.Book;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
+@Service
+public class RoomService {
+    private final RoomRepository roomRepository;
+
+    public RoomService(RoomRepository roomRepository){
+        this.roomRepository = roomRepository;
+    }
+
+    private static RoomDto maptoRoomDto(RoomEntity roomEntity){
+        RoomDto roomDto = new RoomDto();
+
+        roomDto.setName(roomEntity.getName());
+       // roomDto.setLogin(RoomEntity.getLogin());
+        return roomDto;
+    }
+    @Transactional
+    public List<RoomDto> getRooms(String roomName){
+        List<RoomDto> ret = new LinkedList<>();
+        for (RoomEntity c1 : roomRepository.findAll()){
+            RoomDto c2 = maptoRoomDto(c1);
+            ret.add(c2);
+        }
+        return ret;
+    }
+
+    @Transactional
+    public RoomDto getRoom(Long roomId){
+        Optional<RoomEntity> byId = roomRepository.findById(roomId);
+        if (byId.isPresent()){
+            return maptoRoomDto(byId.get());
+        }
+        return null;
+    }
+
+    @Transactional
+    public Long createRoom(RoomDto roomDto){
+        RoomEntity roomEntity = new RoomEntity();
+
+        roomEntity.setName(roomDto.getName());
+
+        this.roomRepository.save(roomEntity);
+
+        return roomEntity.getId();
+    }
+    @Transactional
+    public void updateRoom(int roomId, RoomDto roomDto){
+        Optional<RoomEntity> byId = roomRepository.findById((long)roomId);
+        if (byId.isPresent()){
+            byId.get().setName(roomDto.getName());
+        }
+    }
+
+    @Transactional
+    public void deleteRoom(int roomId){
+        Optional<RoomEntity> byId = roomRepository.findById((long)roomId);
+        if (byId.isPresent()){
+            roomRepository.delete(byId.get());
+        }
+    }
+
+
+///////////////////////////////////////////////////
+////old
+/*
 @Service
 public class RoomService {
     private List<Book> books;
@@ -60,7 +130,7 @@ public class RoomService {
 
 
 
-     public List<Room> getRooms(@RequestParam(required = false) String user){
+    /* public List<Room> getRooms(@RequestParam(required = false) String user){
 
         List<Room> filteredBooks = new ArrayList<>();
         for (Room room : rooms){
@@ -81,5 +151,8 @@ public class RoomService {
 
       public void DeleteRooms(@PathVariable Integer id){
           this.rooms.remove(this.rooms.get(id));
-     }
+     }*/
+
+
+
 }

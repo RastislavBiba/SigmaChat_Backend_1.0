@@ -18,9 +18,6 @@ public class CustomerService {
     private static CustomerDto maptoCustomerDto(CustomerEntity customerEntity){
         CustomerDto customerDto = new CustomerDto();
 
-        customerDto.setFirstName(customerEntity.getFirstName());
-        customerDto.setLastName(customerEntity.getLastName());
-        customerDto.setEmail(customerEntity.getEmail());
         customerDto.setLogin(customerEntity.getLogin());
         return customerDto;
     }
@@ -47,9 +44,6 @@ public class CustomerService {
     public Long createCustomer(CustomerDto customerDto){
         CustomerEntity customerEntity = new CustomerEntity();
 
-        customerEntity.setFirstName(customerDto.getFirstName());
-        customerEntity.setLastName(customerDto.getLastName());
-        customerEntity.setEmail(customerDto.getEmail());
         customerEntity.setLogin(customerDto.getLogin());
 
         this.customerRepository.save(customerEntity);
@@ -60,9 +54,6 @@ public class CustomerService {
     public void updateCustomer(int customerId, CustomerDto customerDto){
         Optional<CustomerEntity> byId = customerRepository.findById((long)customerId);
         if (byId.isPresent()){
-            byId.get().setFirstName(customerDto.getFirstName());
-            byId.get().setLastName(customerDto.getLastName());
-            byId.get().setEmail(customerDto.getEmail());
             byId.get().setLogin(customerDto.getLogin());
         }
     }

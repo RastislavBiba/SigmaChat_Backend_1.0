@@ -12,8 +12,8 @@ public class CustomersController{
     }
 
     @GetMapping("/api/customers")
-    public List<CustomerDto> getCustomers(@RequestParam(required = false) String firstName ){
-        return customerService.getCustomers(firstName);
+    public List<CustomerDto> getCustomers(@RequestParam(required = false) String login ){
+        return customerService.getCustomers(login);
     }
 
     @GetMapping("/api/customers/{customerId}")
