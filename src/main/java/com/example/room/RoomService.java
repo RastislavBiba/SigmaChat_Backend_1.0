@@ -18,11 +18,6 @@ public class RoomService {
     private List<User> users;
     private MessageService messageService;
 
-
-    
-    
-
-
     private String name;
     private String messages;
 

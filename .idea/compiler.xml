@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SigmaChat_Backend_1.0" />
         <module name="SigmaChat_Backend" />
+        <module name="SigmaChat_Backend_1.0" />
         <module name="demo" />
       </profile>
     </annotationProcessing>
@@ -15,7 +15,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="SigmaChat_Backend_1.0" options="-parameters" />
-      <module name="demo" options="-parameters --add-modules java.base,java.desktop" />
+      <module name="demo" options="-parameters" />
     </option>
   </component>
 </project>

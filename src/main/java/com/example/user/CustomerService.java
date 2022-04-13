@@ -20,8 +20,8 @@ public class CustomerService {
 
         customerDto.setFirstName(customerEntity.getFirstName());
         customerDto.setLastName(customerEntity.getLastName());
-        customerDto.setEmail(customerDto.getEmail());
-
+        customerDto.setEmail(customerEntity.getEmail());
+        customerDto.setLogin(customerEntity.getLogin());
         return customerDto;
     }
     @Transactional
@@ -50,6 +50,7 @@ public class CustomerService {
         customerEntity.setFirstName(customerDto.getFirstName());
         customerEntity.setLastName(customerDto.getLastName());
         customerEntity.setEmail(customerDto.getEmail());
+        customerEntity.setLogin(customerDto.getLogin());
 
         this.customerRepository.save(customerEntity);
 
@@ -62,6 +63,7 @@ public class CustomerService {
             byId.get().setFirstName(customerDto.getFirstName());
             byId.get().setLastName(customerDto.getLastName());
             byId.get().setEmail(customerDto.getEmail());
+            byId.get().setLogin(customerDto.getLogin());
         }
     }
 
