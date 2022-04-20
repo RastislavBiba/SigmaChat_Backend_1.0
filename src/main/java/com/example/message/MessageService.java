@@ -19,8 +19,11 @@ public class MessageService {
         MessageDto messageDto = new MessageDto();
 
         messageDto.setText(messageEntity.getText());
-        messageDto.setOdosielatel(messageEntity.getOdosielatel());
-        messageDto.setPrijimatel(messageEntity.getPrijimatel());
+        messageDto.setId_odosielatel(messageEntity.getId_odosielatel());
+
+        //
+        messageDto.setRoom_id(messageEntity.getRoom_id());
+        //
         return messageDto;
     }
 
@@ -33,6 +36,10 @@ public class MessageService {
         }
         return ret;
     }
+
+//
+// getmessages by room_id
+//
 
     @Transactional
     public MessageDto getMessage(Long messageId) {
@@ -47,9 +54,11 @@ public class MessageService {
     public Long createMessage(MessageDto messageDto) {
         MessageEntity messageEntity = new MessageEntity();
         messageEntity.setText(messageDto.getText());
-        messageEntity.setOdosielatel(messageDto.getOdosielatel());
-        messageEntity.setPrijimatel(messageDto.getPrijimatel());
+        messageEntity.setId_odosielatel(messageDto.getId_odosielatel());
 
+        //
+        messageEntity.setRoom_id(messageDto.getRoom_id());
+        //
         this.messageRepository.save(messageEntity);
 
         return messageEntity.getId();
@@ -59,9 +68,9 @@ public class MessageService {
     public void updateMessage(int messageId, MessageDto messageDto) {
         Optional<MessageEntity> byId = messageRepository.findById((long)messageId);
         if (byId.isPresent()) {
-            byId.get().setOdosielatel(messageDto.getOdosielatel());
-            byId.get().setPrijimatel(messageDto.getPrijimatel());
+            byId.get().setId_odosielatel(messageDto.getId_odosielatel());
             byId.get().setText(messageDto.getText());
+            byId.get().setRoom_id(messageDto.getRoom_id());
         }
     }
 

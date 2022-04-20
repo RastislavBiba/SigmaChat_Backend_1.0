@@ -2,8 +2,16 @@ package com.example.message;
 
 public class MessageDto {
     private String text;
-    private String odosielatel;
-    private String prijimatel;
+    private Long id_odosielatel;
+    private Long room_id;
+
+    public Long getRoom_id() {
+        return room_id;
+    }
+
+    public void setRoom_id(Long room_id) {
+        this.room_id = room_id;
+    }
 
     public String getText() {
         return text;
@@ -13,19 +21,11 @@ public class MessageDto {
         this.text = text;
     }
 
-    public String getOdosielatel() {
-        return odosielatel;
+    public Long getId_odosielatel() {
+        return id_odosielatel;
     }
 
-    public void setOdosielatel(String odosielatel) {
-        this.odosielatel = odosielatel;
-    }
-
-    public String getPrijimatel() {
-        return prijimatel;
-    }
-
-    public void setPrijimatel(String prijimatel) {
-        this.prijimatel = prijimatel;
+    public void setId_odosielatel(Long id_odosielatel) {
+        this.id_odosielatel = id_odosielatel;
     }
 }

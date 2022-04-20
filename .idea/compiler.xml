@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SigmaChat_Backend" />
         <module name="SigmaChat_Backend_1.0" />
+        <module name="SigmaChat_Backend" />
         <module name="demo" />
       </profile>
     </annotationProcessing>

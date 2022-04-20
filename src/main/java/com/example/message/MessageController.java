@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 //import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
-//xx
+
 @RestController
 public class MessageController {
     private MessageService messageService;
@@ -36,7 +36,7 @@ public class MessageController {
         messageService.deleteMessage(messageId);
     }
 
-    @PutMapping("/api/books/{bookId}")
+    @PutMapping("/api/messages/{messageId}")
     public void updateMessage(@PathVariable int messageId, @RequestBody MessageDto messageDto) {
         messageService.updateMessage(messageId, messageDto);
     }

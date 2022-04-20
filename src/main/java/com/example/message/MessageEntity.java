@@ -10,9 +10,25 @@ public class MessageEntity {
     @GeneratedValue
     private Long id;
     private String text;
-    private String prijimatel;
-    private String odosielatel;
-    
+    private Long id_odosielatel;
+    private Long room_id;
+
+
+    public Long getRoom_id() {
+        return room_id;
+    }
+
+    public Long getId_odosielatel() {
+        return id_odosielatel;
+    }
+
+    public void setId_odosielatel(Long id_odosielatel) {
+        this.id_odosielatel = id_odosielatel;
+    }
+
+    public void setRoom_id(Long room_id) {
+        this.room_id = room_id;
+    }
 
     public Long getId() {
         return id;
@@ -30,19 +46,4 @@ public class MessageEntity {
         this.text = text;
     }
 
-    public String getPrijimatel() {
-        return prijimatel;
-    }
-
-    public void setPrijimatel(String prijimatel) {
-        this.prijimatel = prijimatel;
-    }
-
-    public String getOdosielatel() {
-        return odosielatel;
-    }
-
-    public void setOdosielatel(String odosielatel) {
-        this.odosielatel = odosielatel;
-    }
 }
