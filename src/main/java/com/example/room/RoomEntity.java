@@ -13,9 +13,24 @@ public class RoomEntity {
     @Id
     @GeneratedValue
     private Long id;
-
     private String name;
+    private Long id_user;
 
+    public Long getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(Long id_user) {
+        this.id_user = id_user;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -49,14 +64,6 @@ public class RoomEntity {
     //private String borrower;
     //private String book;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     /*public String getBorrower() {
         return borrower;

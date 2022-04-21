@@ -17,7 +17,7 @@ public class CustomerService {
 
     private static CustomerDto maptoCustomerDto(CustomerEntity customerEntity){
         CustomerDto customerDto = new CustomerDto();
-
+        customerDto.setId(customerEntity.getId());
         customerDto.setLogin(customerEntity.getLogin());
         return customerDto;
     }

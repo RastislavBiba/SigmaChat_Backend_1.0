@@ -17,12 +17,11 @@ public class MessageService {
 
     private static MessageDto mapToMessageDto(MessageEntity messageEntity) {
         MessageDto messageDto = new MessageDto();
-
+        messageDto.setId(messageEntity.getId());
         messageDto.setText(messageEntity.getText());
         messageDto.setId_odosielatel(messageEntity.getId_odosielatel());
-
         //
-        messageDto.setRoom_id(messageEntity.getRoom_id());
+        messageDto.setPrijemca(messageEntity.getPrijemca());
         //
         return messageDto;
     }
@@ -55,9 +54,7 @@ public class MessageService {
         MessageEntity messageEntity = new MessageEntity();
         messageEntity.setText(messageDto.getText());
         messageEntity.setId_odosielatel(messageDto.getId_odosielatel());
-
-        //
-        messageEntity.setRoom_id(messageDto.getRoom_id());
+        messageEntity.setPrijemca(messageDto.getPrijemca());
         //
         this.messageRepository.save(messageEntity);
 
@@ -70,7 +67,7 @@ public class MessageService {
         if (byId.isPresent()) {
             byId.get().setId_odosielatel(messageDto.getId_odosielatel());
             byId.get().setText(messageDto.getText());
-            byId.get().setRoom_id(messageDto.getRoom_id());
+            byId.get().setPrijemca(messageDto.getPrijemca());
         }
     }
 

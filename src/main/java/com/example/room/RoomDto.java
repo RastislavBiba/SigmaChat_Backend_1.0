@@ -1,10 +1,17 @@
 package com.example.room;
 
 public class RoomDto {
+    private Long id;
     private String name;
-    private String users;
-    private String messages;
+    private Long id_user;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -14,19 +21,11 @@ public class RoomDto {
         this.name = name;
     }
 
-    public String getUsers() {
-        return users;
+    public Long getId_user() {
+        return id_user;
     }
 
-    public void setUsers(String users) {
-        this.users = users;
-    }
-
-    public String getMessages() {
-        return messages;
-    }
-
-    public void setMessages(String messages) {
-        this.messages = messages;
+    public void setId_user(Long id_user) {
+        this.id_user = id_user;
     }
 }

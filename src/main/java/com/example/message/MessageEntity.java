@@ -11,24 +11,7 @@ public class MessageEntity {
     private Long id;
     private String text;
     private Long id_odosielatel;
-    private Long room_id;
-
-
-    public Long getRoom_id() {
-        return room_id;
-    }
-
-    public Long getId_odosielatel() {
-        return id_odosielatel;
-    }
-
-    public void setId_odosielatel(Long id_odosielatel) {
-        this.id_odosielatel = id_odosielatel;
-    }
-
-    public void setRoom_id(Long room_id) {
-        this.room_id = room_id;
-    }
+    private Long prijemca;
 
     public Long getId() {
         return id;
@@ -46,4 +29,19 @@ public class MessageEntity {
         this.text = text;
     }
 
+    public Long getId_odosielatel() {
+        return id_odosielatel;
+    }
+
+    public void setId_odosielatel(Long id_odosielatel) {
+        this.id_odosielatel = id_odosielatel;
+    }
+
+    public Long getPrijemca() {
+        return prijemca;
+    }
+
+    public void setPrijemca(Long prijemca) {
+        this.prijemca = prijemca;
+    }
 }
