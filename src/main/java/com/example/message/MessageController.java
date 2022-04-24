@@ -1,6 +1,7 @@
 package com.example.message;
 
 //import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 //import org.springframework.web.bind.annotation.PutMapping;
 
@@ -17,6 +18,11 @@ public class MessageController {
     @GetMapping("/api/messages")
     public List<MessageDto> getMessages(@RequestParam(required = false) String odosielatel) {
         return messageService.getMessagess(odosielatel);
+    }
+
+    @GetMapping("/api/messagesIR/{prijemca}")
+    public List<MessageDto> getRoomMessages(@PathVariable Iterable <Long> prijemca) {
+        return messageService.getRoomMessages(prijemca);
     }
 
     @GetMapping("/api/messages/{messageId}")

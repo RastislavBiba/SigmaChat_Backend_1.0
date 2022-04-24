@@ -35,10 +35,31 @@ public class MessageService {
         }
         return ret;
     }
+    //
+    @Transactional
+    public List<MessageDto> getRoomMessages(Iterable <Long> prijemca) {
+        List<MessageDto> ret = new LinkedList<>();
+        for (MessageEntity m1 : messageRepository.findAllById(prijemca)) {
+            MessageDto m2 = mapToMessageDto(m1);
+            ret.add(m2);
+        }
+        return ret;
 
-//
-// getmessages by room_id
-//
+        /*Optional<MessageEntity> byRoomId= messageRepository.findById(prijemca);
+
+        List<MessageDto> byPrijemca = new LinkedList<>();
+
+                messageRepository.findAllById(prijemca);
+
+        if (byRoomId.isPresent()) {
+            return byRoomId.get();
+
+        return mapToMessageDto(byRoomId.get());
+    }
+    return null;*/
+
+
+    }
 
     @Transactional
     public MessageDto getMessage(Long messageId) {
