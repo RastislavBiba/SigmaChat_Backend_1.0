@@ -37,11 +37,14 @@ public class MessageService {
     }
     //
     @Transactional
-    public List<MessageDto> getRoomMessages(Iterable <Long> prijemca) {
+    public List<MessageDto> getRoomMessages(Long prijemca) {
+
         List<MessageDto> ret = new LinkedList<>();
-        for (MessageEntity m1 : messageRepository.findAllById(prijemca)) {
-            MessageDto m2 = mapToMessageDto(m1);
-            ret.add(m2);
+        for (MessageEntity m1 : messageRepository.findAll()) {
+            if(prijemca.equals(m1.getPrijemca()) ){
+                MessageDto m2 = mapToMessageDto(m1);
+                ret.add(m2);
+            }
         }
         return ret;
 

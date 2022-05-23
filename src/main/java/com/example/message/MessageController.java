@@ -21,7 +21,7 @@ public class MessageController {
     }
 
     @GetMapping("/api/messagesIR/{prijemca}")
-    public List<MessageDto> getRoomMessages(@PathVariable Iterable <Long> prijemca) {
+    public List<MessageDto> getRoomMessages(@PathVariable Long prijemca) {
         return messageService.getRoomMessages(prijemca);
     }
 
