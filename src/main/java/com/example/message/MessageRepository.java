@@ -10,5 +10,6 @@ import java.util.Optional;
 public interface MessageRepository extends CrudRepository<MessageEntity, Long>  {
 
     Optional<MessageEntity> findByPrijemca(Long prijemca);
+    List<MessageEntity> findAllByPrijemca(Long prijemca);
 }
 

@@ -1,4 +1,5 @@
 package com.example.room;
+import com.example.message.MessageRepository;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.LinkedList;
@@ -9,8 +10,11 @@ import java.util.Optional;
 public class RoomService {
     private final RoomRepository roomRepository;
 
-    public RoomService(RoomRepository roomRepository){
+    private MessageRepository messageRepository;
+
+    public RoomService(RoomRepository roomRepository, MessageRepository messageRepository){
         this.roomRepository = roomRepository;
+        this.messageRepository = messageRepository;
     }
 
     private static RoomDto maptoRoomDto(RoomEntity roomEntity){
@@ -35,6 +39,7 @@ public class RoomService {
     public RoomDto getRoom(Long roomId){
         Optional<RoomEntity> byId = roomRepository.findById(roomId);
         if (byId.isPresent()){
+            //messageRepository.findByPrijemca(roomId);
             return maptoRoomDto(byId.get());
         }
         return null;

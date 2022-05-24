@@ -34,7 +34,33 @@ public class MessageService {
         }
         return ret;
     }
+
+    @Transactional
+    public List<MessageListDto> getAllRoomMessagess(Long prijemca) {
+        List<MessageListDto> ret = new LinkedList<>();
+        for (MessageEntity m1 : messageRepository.findAll()) {
+            MessageListDto m2 = mapToMessageDto(m1);
+            ret.add(m2);
+        }
+        return ret;
+    }
     //
+
+    @Transactional
+    public List<MessageListDto> getRoomMessages(Long prijemca) {
+
+        List<MessageListDto> byRoomId = new LinkedList<>();
+
+        if(prijemca!=null){
+            for (MessageEntity b1 : messageRepository.findAllByPrijemca(prijemca)) {
+                MessageListDto b2 = mapToMessageDto(b1);
+                byRoomId.add(b2);
+            }
+        }
+        return byRoomId;
+    }
+
+    /*
     @Transactional
     public MessageListDto getRoomMessages(Long prijemca) {
 
@@ -45,7 +71,8 @@ public class MessageService {
         }
 
         return null;
-
+    }
+/////////////////////////////////////////////////////
 /*
         List<MessageDto> ret = new LinkedList<>();
         for (MessageEntity m1 : messageRepository.findByPrijimatel(prijemca)) {
@@ -70,7 +97,7 @@ public class MessageService {
     return null;*/
 
 
-    }
+
 
     @Transactional
     public MessageListDto getMessage(Long messageId) {
