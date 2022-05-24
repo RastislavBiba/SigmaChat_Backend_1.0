@@ -1,16 +1,14 @@
 package com.example.room;
 
 public class RoomDto {
-    private Long id;
+    private Long room_id;
     private String name;
     private Long id_user;
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return room_id; }
 
     public void setId(Long id) {
-        this.id = id;
+        this.room_id = id;
     }
 
     public String getName() {

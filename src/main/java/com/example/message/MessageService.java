@@ -1,5 +1,6 @@
 package com.example.message;
 
+import com.example.room.RoomEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

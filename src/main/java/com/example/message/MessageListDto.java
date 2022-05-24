@@ -1,5 +1,8 @@
 package com.example.message;
 
+import com.example.room.RoomEntity;
+import com.example.user.CustomerEntity;
+
 public class MessageListDto {
     private Long id;
     private String text;
@@ -34,7 +37,7 @@ public class MessageListDto {
         return prijemca;
     }
 
-    public void setPrijemca(Long prijemca) {
-        this.prijemca = prijemca;
+    public void setPrijemca(RoomEntity prijemca) {
+        this.prijemca = prijemca.getRoom_id();
     }
 }

@@ -1,8 +1,9 @@
 package com.example.message;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.example.room.RoomEntity;
+import com.example.user.CustomerEntity;
+
+import javax.persistence.*;
 
 @Entity
 public class MessageEntity {
@@ -10,8 +11,13 @@ public class MessageEntity {
     @GeneratedValue
     private Long id;
     private String text;
-    private Long id_odosielatel;
-    private Long prijemca;
+
+    @ManyToOne
+    private CustomerEntity id_odosielatel;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private RoomEntity prijemca;
 
     public Long getId() {
         return id;
@@ -30,18 +36,18 @@ public class MessageEntity {
     }
 
     public Long getId_odosielatel() {
-        return id_odosielatel;
+        return id_odosielatel.getId();
     }
 
     public void setId_odosielatel(Long id_odosielatel) {
-        this.id_odosielatel = id_odosielatel;
+        this.id_odosielatel.setId(id_odosielatel);
     }
 
-    public Long getPrijemca() {
+    public RoomEntity getPrijemca() {
         return prijemca;
     }
 
     public void setPrijemca(Long prijemca) {
-        this.prijemca = prijemca;
+        this.prijemca.setRoom_id(prijemca);
     }
 }

@@ -20,7 +20,7 @@ public class RoomService {
     private static RoomDto maptoRoomDto(RoomEntity roomEntity){
         RoomDto roomDto = new RoomDto();
         roomDto.setName(roomEntity.getName());
-        roomDto.setId(roomEntity.getId());
+        roomDto.setId(roomEntity.getRoom_id());
 
        // roomDto.setLogin(RoomEntity.getLogin());
         return roomDto;
@@ -53,7 +53,7 @@ public class RoomService {
 
         this.roomRepository.save(roomEntity);
 
-        return roomEntity.getId();
+        return roomEntity.getRoom_id();
     }
     @Transactional
     public void updateRoom(int roomId, RoomDto roomDto){

@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 public class RoomEntity {
     @Id
     @GeneratedValue
-    private Long id;
+    private Long room_id;
     private String name;
     private Long id_user;
 
@@ -24,12 +24,12 @@ public class RoomEntity {
         this.id_user = id_user;
     }
 
-    public Long getId() {
-        return id;
+    public Long getRoom_id() {
+        return room_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRoom_id(Long room_id) {
+        this.room_id = room_id;
     }
 
     public String getName() {

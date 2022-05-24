@@ -1,5 +1,8 @@
 package com.example.message;
 
+import com.example.room.RoomEntity;
+import com.example.user.CustomerEntity;
+
 public class MessageDto {
     private Long id;
     private String text;
