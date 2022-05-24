@@ -16,17 +16,17 @@ public class MessageController {
     }
 
     @GetMapping("/api/messages")
-    public List<MessageDto> getMessages(@RequestParam(required = false) String odosielatel) {
+    public List<MessageListDto> getMessages(@RequestParam(required = false) String odosielatel) {
         return messageService.getMessagess(odosielatel);
     }
 
     @GetMapping("/api/messagesIR/{prijemca}")
-    public List<MessageDto> getRoomMessages(@PathVariable Long prijemca) {
+    public MessageListDto getRoomMessages(@PathVariable Long prijemca) {
         return messageService.getRoomMessages(prijemca);
     }
 
     @GetMapping("/api/messages/{messageId}")
-    public MessageDto getMessage(@PathVariable Long messageId) {
+    public MessageListDto getMessage(@PathVariable Long messageId) {
         return messageService.getMessage(messageId);
     }
 

@@ -15,32 +15,40 @@ public class MessageService {
         this.messageRepository = messageRepository;
     }
 
-    private static MessageDto mapToMessageDto(MessageEntity messageEntity) {
-        MessageDto messageDto = new MessageDto();
-        messageDto.setId(messageEntity.getId());
-        messageDto.setText(messageEntity.getText());
-        messageDto.setId_odosielatel(messageEntity.getId_odosielatel());
-        //
-        messageDto.setPrijemca(messageEntity.getPrijemca());
-        //
-        return messageDto;
+    private static MessageListDto mapToMessageDto(MessageEntity messageEntity) {
+        MessageListDto messageListDto = new MessageListDto();
+        messageListDto.setId(messageEntity.getId());
+        messageListDto.setText(messageEntity.getText());
+        messageListDto.setId_odosielatel(messageEntity.getId_odosielatel());
+        messageListDto.setPrijemca(messageEntity.getPrijemca());
+
+        return messageListDto;
     }
 
     @Transactional
-    public List<MessageDto> getMessagess(String Odosielatel) {
-        List<MessageDto> ret = new LinkedList<>();
+    public List<MessageListDto> getMessagess(String Odosielatel) {
+        List<MessageListDto> ret = new LinkedList<>();
         for (MessageEntity m1 : messageRepository.findAll()) {
-            MessageDto m2 = mapToMessageDto(m1);
+            MessageListDto m2 = mapToMessageDto(m1);
             ret.add(m2);
         }
         return ret;
     }
     //
     @Transactional
-    public List<MessageDto> getRoomMessages(Long prijemca) {
+    public MessageListDto getRoomMessages(Long prijemca) {
 
+        Optional<MessageEntity> byRoomId = messageRepository.findByPrijemca(prijemca);
+
+        if(byRoomId.isPresent()){
+            return mapToMessageDto(byRoomId.get());
+        }
+
+        return null;
+
+/*
         List<MessageDto> ret = new LinkedList<>();
-        for (MessageEntity m1 : messageRepository.findAll()) {
+        for (MessageEntity m1 : messageRepository.findByPrijimatel(prijemca)) {
             if(prijemca.equals(m1.getPrijemca()) ){
                 MessageDto m2 = mapToMessageDto(m1);
                 ret.add(m2);
@@ -65,7 +73,7 @@ public class MessageService {
     }
 
     @Transactional
-    public MessageDto getMessage(Long messageId) {
+    public MessageListDto getMessage(Long messageId) {
         Optional<MessageEntity> byId = messageRepository.findById(messageId);
         if (byId.isPresent()) {
             return mapToMessageDto(byId.get());
